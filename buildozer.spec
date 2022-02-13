@@ -1,10 +1,10 @@
 [app]
 
 # (str) Title of your application
-title = My mobile calculator
+title = My_mobile_calculator
 
 # (str) Package name
-package.name = mainapp
+package.name = mobileapp
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.wiseplat
@@ -29,7 +29,7 @@ source.include_exts = py,png,jpg,kv,atlas
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 0.1
+version = 0.2
 
 # (str) Application versioning (method 2)
 # version.regex = __version__ = ['"](.*)['"]
@@ -37,7 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy==2.0.0,math
+requirements = python3,kivy==2.0.0
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
