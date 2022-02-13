@@ -1,0 +1,142 @@
+<ItemButton@Button>:
+    background_color: .48, .60, .32, 1 #цвет кнопки
+    background_normal: '' #нормализация цвета(не забываем кавычки!)
+    font_size: '25sp'
+    halign: 'center'
+    valign: 'middle'
+    text_size: self.size
+
+
+<CalculatorGridLayout>:
+    id: calculator
+    rows: 7
+    padding: 10
+    spacing: 5
+    enter_button: button_input
+    enter_button1: button_input1
+    display: data
+    BoxLayout:
+
+        TextInput:
+            id: data
+            font_size: '40sp'
+            multiline: False
+            halign: 'right' #горизонтальное выравнивание
+            valign: 'middle'#вертикальное выравнивание
+            text_size: self.size # растягивание текста по рамке
+
+    BoxLayout:
+        spacing: 5
+        ItemButton:
+            background_color: 0, .39, 0, 1
+            background_normal: ''
+            text: 'x^'
+            on_press: data.text += '**'
+        ItemButton:
+            background_color: 0, .39, 0, 1
+            background_normal: ''
+            text: 'π'
+            on_press: root.pi_button()
+        ItemButton:
+            background_color: 0, .39, 0, 1
+            background_normal: ''
+            id: button_input1
+            text: '√'
+            on_press: root.sqrt_button()
+        ItemButton:
+            background_color: 1, 0, 0, 1
+            background_normal: ''
+            id: button_input
+            text: 'C'
+            on_press: data.text = data.text[:-1]
+
+    BoxLayout:
+        spacing: 5
+        ItemButton:
+            text: '7'
+            on_press: data.text += self.text
+        ItemButton:
+            text: '8'
+            on_press: data.text += self.text
+        ItemButton:
+            text: '9'
+            on_press: data.text += self.text
+        ItemButton:
+            background_color: 1, .65, 0, 1
+            background_normal: ''
+            font_size: '30sp'
+            text: '÷'
+            on_press: data.text += '/'
+
+    BoxLayout:
+        spacing: 5
+        ItemButton:
+            text: '4'
+            on_press: data.text += self.text
+        ItemButton:
+            text: '5'
+            on_press: data.text += self.text
+        ItemButton:
+            text: '6'
+            on_press: data.text += self.text
+        ItemButton:
+            background_color: 1, .65, 0, 1
+            background_normal: ''
+            font_size: '30sp'
+            text: '×'
+            on_press: data.text += '*'
+
+    BoxLayout:
+        spacing: 5
+        ItemButton:
+            text: '1'
+            on_press: data.text += self.text
+        ItemButton:
+            text: '2'
+            on_press: data.text += self.text
+        ItemButton:
+            text: '3'
+            on_press: data.text += self.text
+        ItemButton:
+            background_color: 1, .65, 0, 1
+            background_normal: ''
+            font_size: '30sp'
+            text: '+'
+            on_press: data.text += self.text
+
+    BoxLayout:
+        spacing: 5
+        ItemButton:
+            text: '('
+            on_press: data.text += self.text
+        ItemButton:
+            text: '0'
+            on_press: data.text += self.text
+        ItemButton:
+            text: ')'
+            on_press: data.text += self.text
+        ItemButton:
+            background_color: 1, .65, 0, 1
+            background_normal: ''
+            font_size: '30sp'
+            text: '-'
+            on_press: data.text += self.text
+
+    BoxLayout:
+        spacing: 5
+        ItemButton:
+            text: '.00'
+            on_press: on_press: root.round_button()
+        ItemButton:
+            text: '.'
+            on_press: data.text += self.text
+        ItemButton:
+            background_color: 1, 0, 0, 1
+            background_normal: ''
+            text: 'Del'
+            on_press: data.text = ''
+        ItemButton:
+            background_color: 54, .17, .89, 1
+            background_normal: ''
+            text: '='
+            on_press: calculator.calculate(data.text)
